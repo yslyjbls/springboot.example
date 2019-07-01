@@ -1,5 +1,6 @@
 server:
-  context-path: /api
+  servlet:
+    context-path: /api
   port: 8023
  
 spring:
@@ -18,6 +19,7 @@ spring:
 logging:
   level:
     springboot.example: info
+<<<<<<< Updated upstream
     
 aliyun:
   appKey: 1
@@ -25,3 +27,5 @@ aliyun:
   bucket: lynn
   endPoint: https://www.aliyun.com
   
+=======
+>>>>>>> Stashed changes

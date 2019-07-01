@@ -3,9 +3,13 @@ package springboot.example;
 import java.nio.charset.Charset;
 import java.util.List;
 
+<<<<<<< Updated upstream
 import javax.validation.Validator;
 
 import org.hibernate.validator.HibernateValidator;
+=======
+
+>>>>>>> Stashed changes
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.MessageSource;
@@ -28,6 +32,7 @@ import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import springboot.example.annotation.CustomRequestMappingHandlerMapping;
 import springboot.example.configuration.Aliyun;
 import springboot.example.interceptor.ApiInterceptor;
+import springboot.example.interceptor.ApiInterceptor2;
 
 
 /**
@@ -37,7 +42,7 @@ import springboot.example.interceptor.ApiInterceptor;
  */
 @SpringBootConfiguration
 public class WebConfig extends WebMvcConfigurationSupport {
-
+	
 	/**
 	 * 注册自定义拦截器
 	 */
@@ -45,6 +50,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
 	protected void addInterceptors(InterceptorRegistry registry) {
 		super.addInterceptors(registry);
 		registry.addInterceptor(new ApiInterceptor());
+		registry.addInterceptor(new ApiInterceptor2());
 	}
 
 	/**
@@ -94,6 +100,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
         return handlerMapping;
 	}
 	
+<<<<<<< Updated upstream
 	@Value("${aliyun.appKey}")
 	private String appKey;
 	@Value("${aliyun.appSecret}")
@@ -119,4 +126,6 @@ public class WebConfig extends WebMvcConfigurationSupport {
 				.build();
 	}
 	
+=======
+>>>>>>> Stashed changes
 }

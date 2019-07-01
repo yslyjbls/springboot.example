@@ -16,9 +16,9 @@ import springboot.example.annotation.ApiVersion;
 @RequestMapping("/{version}/hello")
 public class ApiTest1Controller {
 	
-	@RequestMapping("/world")
+	@RequestMapping("/world1")
 	@ResponseBody
-    public String helloWorld(){
+    public String helloWorld1(){
         System.out.println("版本是1的接口");
         return "hello,world .version is 1";
     }
