@@ -3,10 +3,19 @@ package springboot.example;
 import java.nio.charset.Charset;
 import java.util.List;
 
+import javax.validation.Validator;
+
+import org.hibernate.validator.HibernateValidator;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
@@ -17,6 +26,7 @@ import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 
 import springboot.example.annotation.CustomRequestMappingHandlerMapping;
+import springboot.example.configuration.Aliyun;
 import springboot.example.interceptor.ApiInterceptor;
 
 
@@ -83,5 +93,30 @@ public class WebConfig extends WebMvcConfigurationSupport {
         handlerMapping.setInterceptors(getInterceptors());
         return handlerMapping;
 	}
-
+	
+	@Value("${aliyun.appKey}")
+	private String appKey;
+	@Value("${aliyun.appSecret}")
+	private String appSecret;
+	@Value("${aliyun.bucket}")
+	private String bucket;
+	@Value("${aliyun.endPoint}")
+	private String endPoint;
+	
+	/**
+	 * 注册自定义类，如果想要使用此类，可以在需要的类里面注入 @Autowired 注解注入
+	 * 如：
+	 *	@Autowired
+     *	private Aliyun aliyun;
+	 */
+	@Bean
+	public Aliyun aliyun(){
+		return Aliyun.options()
+				.setAppKey(appKey)
+				.setAppSecret(appSecret)
+				.setBucket(bucket)
+				.setEndPoint(endPoint)
+				.build();
+	}
+	
 }
