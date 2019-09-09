@@ -3,23 +3,11 @@ package springboot.example;
 import java.nio.charset.Charset;
 import java.util.List;
 
-<<<<<<< Updated upstream
-import javax.validation.Validator;
-
-import org.hibernate.validator.HibernateValidator;
-=======
-
->>>>>>> Stashed changes
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringBootConfiguration;
-import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
@@ -100,7 +88,6 @@ public class WebConfig extends WebMvcConfigurationSupport {
         return handlerMapping;
 	}
 	
-<<<<<<< Updated upstream
 	@Value("${aliyun.appKey}")
 	private String appKey;
 	@Value("${aliyun.appSecret}")
@@ -126,6 +113,4 @@ public class WebConfig extends WebMvcConfigurationSupport {
 				.build();
 	}
 	
-=======
->>>>>>> Stashed changes
 }
