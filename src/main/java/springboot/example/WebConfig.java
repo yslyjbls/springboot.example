@@ -3,8 +3,12 @@ package springboot.example;
 import java.nio.charset.Charset;
 import java.util.List;
 
+import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
@@ -19,8 +23,6 @@ import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 
 import springboot.example.annotation.CustomRequestMappingHandlerMapping;
 import springboot.example.configuration.Aliyun;
-import springboot.example.interceptor.ApiInterceptor;
-import springboot.example.interceptor.ApiInterceptor2;
 
 
 /**
@@ -37,8 +39,8 @@ public class WebConfig extends WebMvcConfigurationSupport {
 	@Override
 	protected void addInterceptors(InterceptorRegistry registry) {
 		super.addInterceptors(registry);
-		registry.addInterceptor(new ApiInterceptor());
-		registry.addInterceptor(new ApiInterceptor2());
+		//registry.addInterceptor(new ApiInterceptor());
+		//registry.addInterceptor(new ApiInterceptor2());
 	}
 
 	/**

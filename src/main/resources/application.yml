@@ -1,31 +1,3 @@
-server:
-  servlet:
-    context-path: /api
-  port: 8023
- 
 spring:
   profiles:
-    active:
-      - dev
-  http:
-    encoding:
-      force: true
-      charset: utf-8
-      enabled: true
-  messages:
-     basename: base,todo # 资源文件 base.properties 和 todo.properties，多个用逗号隔开 
-     encoding: UTF-8 # 必须指定解析编码，否则中文乱码
-     
-logging:
-  level:
-    springboot.example: info
-<<<<<<< Updated upstream
-    
-aliyun:
-  appKey: 1
-  appSecret: 1
-  bucket: lynn
-  endPoint: https://www.aliyun.com
-  
-=======
->>>>>>> Stashed changes
+    active: dev
