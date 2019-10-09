@@ -1,28 +1,22 @@
 package springboot.example;
 
-import java.nio.charset.Charset;
-import java.util.List;
-
-import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.support.config.FastJsonConfig;
+import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.SpringBootConfiguration;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
-
-import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.alibaba.fastjson.support.config.FastJsonConfig;
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-
 import springboot.example.annotation.CustomRequestMappingHandlerMapping;
 import springboot.example.configuration.Aliyun;
+
+import java.nio.charset.Charset;
+import java.util.List;
 
 
 /**
@@ -30,7 +24,7 @@ import springboot.example.configuration.Aliyun;
  * @author lich
  *
  */
-@SpringBootConfiguration
+@Configuration
 public class WebConfig extends WebMvcConfigurationSupport {
 	
 	/**
